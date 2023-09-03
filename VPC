@@ -1,0 +1,50 @@
+Virtual Private Cloud 
+- VPC is a virtual Network or data centre inside AWS for one client .
+- Once we created the VPC .DHCP NACL and Security group will be autimatically created .
+- A VPC is confined to an aws region and does not extend between regions.
+-Subnet is creted on availability zone same subnet can't be on the othe AZ.
+-Once VPC created you can't change the primary CIDR .
+
+Type of VPC 
+1.Default VPC
+2.Custom VPC
+
+Componets of VPC 
+
+PUBLIC SUBNET : If a subnet's traffic is routed to an internet gatway,subnet is known as public subnet .
+- This connects the VPC to the Internet and to other AWS services
+
+PRIVATE SUBNET :A private subnet is a subnet that is associated with a route table that doesn't have a route to an internet gateway.
+
+
+* If your creating the subnet (private or public ) it should be in range of /16 to /28 
+ROUTER: It is the central routing function .
+* Each subnet must be associated with only one route table at any given time .If you do not specify a subnet to route table assoication the subnet will be associated with the default VPC route table .
+* you can't delete the main route table you can modify it .
+
+INTERNET GATEWAY:
+- It is Virtual router that connects a vpc to the internet .
+
+NAT GATEWAY :Network address translation (NAT)
+- NAT gateway help to connect private subnet to the internet .
+- There is only outbound connection. 
+
+Security group :
+- It is Virtual Firewall Work at EC2 level 
+- Can only have permit rule ,can't have option to deny .
+- Stateful ,return traffic of allowed inbound traffic is allowed ,even if there are no rule to allow it.
+
+NACL(network access control list):
+- A network access control list (NACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets. 
+You might set up network ACLs with rules similar to your security groups in order to add an additional layer of security to your VPC.
+- At same time one subnet associated with only one NACL.But single NACL can connect with multiple subnets.
+-It is working genrally at subnet layer .
+-You have permission have to allow and denied.
+
+VPC PERRING :
+VPC peering is a technique for securely connecting two or more VPCs.
+* According to Amazon, a VPC peering connection is “a networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses”.
+- Transitive peering is not possible.   eg If there is 3 VPC and there is perring b/w VPC A and VPC B ,perring b/w VPC B and VPC C its does't mean VPC A have perring with VPC C.  
+
+
+
